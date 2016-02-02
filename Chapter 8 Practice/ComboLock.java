@@ -65,10 +65,10 @@ public class ComboLock
     
     public boolean open()
     {
-        
+         boolean isOpen = false;
         if(correct1 == true && correct2 == true && correct3 == true)
         {
-           boolean isOpen = true;
+           isOpen = true;
         }
         return isOpen;
     }

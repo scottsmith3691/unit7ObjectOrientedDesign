@@ -32,6 +32,11 @@ public class Question
    {
       answer = correctResponse;
    }
+   
+   public void addText(String questionText)
+   {
+       text += questionText;
+    }
 
    /**
       Checks a given response for correctness.
