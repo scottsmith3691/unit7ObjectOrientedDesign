@@ -4,31 +4,27 @@ import java.awt.Rectangle;
 import javax.swing.JComponent;
 public class TriangleComponent extends JComponent
 {
-    private static final int BOX_X = 100;
-    private static final int BOX_Y = 100;
-    private static final int BOX_WIDTH = 20;
-    private static final int BOX_HEIGHT = 30;
     
-    private Rectangle box;
-
+    //private Triangle tri;
     /**
      * Default constructor for objects of class TriangleComponent
      */
     public TriangleComponent()
     {
-        box = new Rectangle(BOX_X, BOX_Y, BOX_WIDTH, BOX_HEIGHT); 
+        tri = 
     }
 
-
-    public void paintComponent(Graphics g)
+  public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
-        g2.draw(box);
+        g2.draw(point);
     }
-    
-    public void moveRectangle(int x, int y)
+
+  public void moveRectangle(int x, int y)
     {
-        box.setLoctaion(x, y);
+        point1.setLocation(x, y);
+        point2.setLocation(x, y);
+        point3.setLocation(x, y);
         repaint();
     }
 
