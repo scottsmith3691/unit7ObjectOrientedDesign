@@ -16,20 +16,23 @@ public class ControlPanel extends JPanel
     private JButton button;
     private JButton button2;
     private JButton button3;
-    private JPanel panel;
+    
     /**
      * Default constructor for objects of class ControlPanel
      */
     public ControlPanel(DrawingPanel canvas)
     {
+        
         this.button = new JButton("Pick Color");
-        panel.add(button);
+        add(button);
         
         this.button2 = new JButton("Add Circle");
-        panel.add(button2);
+        add(button2);
         
         this.button3 = new JButton("Add Square");
-        panel.add(button2);
+        add(button3);
+        
+        
         
         
     }

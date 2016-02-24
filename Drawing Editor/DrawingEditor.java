@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
-
+import java.awt.BorderLayout;
+import java.awt.*;
 /**
  * Write a description of class DrawingEditor here.
  * 
@@ -9,8 +10,8 @@ import javax.swing.JFrame;
 public class DrawingEditor extends JFrame
 {
     
-    private static final int FRAME_WIDTH = 300;
-    private static final int FRAME_HEIGHT = 400;
+    private static final int FRAME_WIDTH = 600;
+    private static final int FRAME_HEIGHT = 800;
     
     private ControlPanel controls;
     private DrawingPanel canvas;
@@ -19,13 +20,16 @@ public class DrawingEditor extends JFrame
      */
     public DrawingEditor()
     {
+        canvas = new DrawingPanel();
+        controls = new ControlPanel(canvas);
+        
+        
+        add(controls, BorderLayout.SOUTH);
+        add(canvas, BorderLayout.CENTER);
         
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        
-        canvas = new DrawingPanel();
-        controls = new ControlPanel(canvas);
     }
     
     public static void main(String[] args)
