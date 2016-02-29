@@ -31,9 +31,5 @@ public class ControlPanel extends JPanel
         
         this.button3 = new JButton("Add Square");
         add(button3);
-        
-        
-        
-        
     }
 }
