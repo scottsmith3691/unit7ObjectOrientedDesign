@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import javax.swing.JColorChooser;
 /**
  * Write a description of class DrawingPanel here.
  * 
@@ -15,6 +16,7 @@ public class DrawingPanel extends JPanel
 {
     ArrayList<Shape> shapes;
     Dimension dim;
+    Color cc;
     
     public DrawingPanel()
     {
@@ -34,6 +36,7 @@ public class DrawingPanel extends JPanel
     
     public void pickColor()
     {
+        cc=JColorChooser.showDialog(this, "Choose Color" , cc);
         
     }
     
@@ -58,7 +61,7 @@ public class DrawingPanel extends JPanel
         {
             int x = event.getX();
             int y = event.getY();
-            //scene.setTriangle(x, y);
+            //canvas.setTriangle(x, y);
         }
         public void mouseReleased(MouseEvent event)
         {
@@ -72,21 +75,6 @@ public class DrawingPanel extends JPanel
         public void mouseExited(MouseEvent event)
         {
         }
-        public void actionPerformed(ActionEvent event)
-        {
-            if(event.getSource() == button)
-            {
-                
-            }
-            else if (event.getSource() == button2)
-            {
-                
-            }
-            else if (event.getSource() == button3)
-            {
-                
-            }
-            
-        }
+        
     }
 }
