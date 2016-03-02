@@ -18,15 +18,19 @@ public class ControlPanel extends JPanel
     private JButton button2;
     private JButton button3;
     public DrawingPanel canvas1;
-    
+    public JPanel colorPanel;
     /**
      * Default constructor for objects of class ControlPanel
      */
     public ControlPanel(DrawingPanel canvas)
     {
-        
+        canvas1 = canvas;
         this.button = new JButton("Pick Color");
         add(button);
+        
+        colorPanel = new JPanel();
+        colorPanel.setBackground(canvas1.getColor());
+        add(colorPanel);
         
         this.button2 = new JButton("Add Circle");
         add(button2);
@@ -38,7 +42,8 @@ public class ControlPanel extends JPanel
         button2.addActionListener(listener);
         button3.addActionListener(listener);
         
-        canvas1 = canvas;
+        
+        
         
         
         
@@ -52,6 +57,8 @@ public class ControlPanel extends JPanel
              if (event.getSource() == button)
              {
                 canvas1.pickColor();
+                
+                colorPanel.setBackground(canvas1.getColor());
                 }
              else if (event.getSource() == button2)
              {

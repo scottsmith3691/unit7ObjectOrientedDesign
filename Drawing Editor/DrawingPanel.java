@@ -6,6 +6,7 @@ import java.util.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import javax.swing.JColorChooser;
+import java.awt.Color;
 /**
  * Write a description of class DrawingPanel here.
  * 
@@ -18,14 +19,16 @@ public class DrawingPanel extends JPanel
     Dimension dim;
     Color cc;
     
+    
     public DrawingPanel()
     {
         setBackground(Color.WHITE);
+        cc = Color.RED;
     }
     
-    public String getColor()
+    public Color getColor()
     {
-        return "s";
+        return cc;
     }
     
     public Dimension getPreferredSize()

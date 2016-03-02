@@ -1,5 +1,7 @@
-
-
+import java.awt.geom.Point2D;
+import java.awt.Color;
+import java.awt.*;
+import java.util.*;
 /**
  * Write a description of abstract class Shape here.
  * 
@@ -8,46 +10,48 @@
  */
 public abstract class Shape
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    Point2D.Double center1;
+    double rad;
+    Color c;
 
     /**
      * Default constructor for objects of class Shape
      */
-    public Shape()
+    public Shape(Point2D.Double center, double radius, Color color)
     {
-        // initialise instance variables
-        x = 0;
+        center1 = center;
+        rad = radius;
+        c = color;
     }
     
-    /**
-     * An example of an abstract method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public abstract int sampleAbstractMethod(int y);
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
+    public Point2D.Double getCenter()
     {
-        // put your code here
-        return x+y;
+        return center1;
+    }
+    
+    public double getRadius()
+    {
+        return rad;
+    }
+    
+    public void move(double x, double y)
+    {
+        
+    }
+    
+    public void setRadius(double r)
+    {
+        
+    }
+    
+    public boolean isInside(Point2D.Double point)
+    {
+        return true;
+    }
+    
+    public void draw(Graphics2D g2, boolean filled)
+    {
+        
     }
 
 }
