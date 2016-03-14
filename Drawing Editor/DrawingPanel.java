@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import javax.swing.JColorChooser;
 import java.awt.Color;
+import java.awt.geom.Point2D;
 /**
  * Write a description of class DrawingPanel here.
  * 
@@ -15,10 +16,9 @@ import java.awt.Color;
  */
 public class DrawingPanel extends JPanel
 {
-    ArrayList<Shape> shapes;
-    Dimension dim;
-    Color cc;
-    
+    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+    private Dimension dim;
+    private Color cc;
     
     public DrawingPanel()
     {
@@ -45,17 +45,26 @@ public class DrawingPanel extends JPanel
     
     public void addCircle()
     {
-        //Circle circle = new Circle();
+        shapes.add(new Circle(new Point2D.Double(150,150), 150, cc));
     }
     
-    public void addSquare()
+    public void addSquare(Graphics2D g)
     {
         //Square square = new Square();
+        
     }
     
     public void paintComponent(Graphics g)
     {
+        Graphics2D g2 = (Graphics2D) g;
+       
         super.paintComponent(g);
+        
+        //for(Shape shape : shapeList)
+        {
+            //shape.draw(g2, true);
+        }
+        repaint();
     }
     
         public class MousePressListener implements MouseListener
@@ -64,7 +73,7 @@ public class DrawingPanel extends JPanel
         {
             int x = event.getX();
             int y = event.getY();
-            //canvas.setTriangle(x, y);
+            
         }
         public void mouseReleased(MouseEvent event)
         {

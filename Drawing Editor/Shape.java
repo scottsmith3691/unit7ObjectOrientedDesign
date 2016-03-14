@@ -26,6 +26,7 @@ public abstract class Shape
     
     public Point2D.Double getCenter()
     {
+        
         return center1;
     }
     
@@ -36,12 +37,12 @@ public abstract class Shape
     
     public void move(double x, double y)
     {
-        
+        center1.setLocation(center1.getX() + x, center1.getY() + y);
     }
     
     public void setRadius(double r)
     {
-        
+        rad = r;
     }
     
     public boolean isInside(Point2D.Double point)
@@ -49,9 +50,10 @@ public abstract class Shape
         return true;
     }
     
-    public void draw(Graphics2D g2, boolean filled)
-    {
-        
-    }
+    //public abstract void draw(Graphics2D g2, boolean filled);
+
+    
+    public abstract void translate(double x, double y);
+ 
 
 }

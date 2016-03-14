@@ -41,33 +41,39 @@ public class ControlPanel extends JPanel
         button.addActionListener(listener);
         button2.addActionListener(listener);
         button3.addActionListener(listener);
-        
-        
-        
-        
-        
-        
-        
-        
-    }
+         }
+        public void setColor()
+        {
+            this.canvas1.pickColor();
+            
+            //this.displayColor.setBackground(this.canvas1.getColor());
+        }
+        public void addCircle()
+        {
+            this.canvas1.addCircle();
+        }
+        public void addSquare()
+        {
+            //this.canvas1.addSquare();
+        }
     public class ClickListener implements ActionListener
 {
     public void actionPerformed(ActionEvent event)
     {
              if (event.getSource() == button)
              {
-                canvas1.pickColor();
+                setColor();
                 
-                colorPanel.setBackground(canvas1.getColor());
+                //colorPanel.setBackground(canvas1.getColor());
                 }
              else if (event.getSource() == button2)
              {
-                 canvas1.addCircle();
+                canvas1.addCircle();
                  System.out.println("Button1");
                 }
              else if (event. getSource() == button3)
              {
-                 canvas1.addSquare();
+                 addSquare();
                  System.out.println("Button2");
                 }
     }
