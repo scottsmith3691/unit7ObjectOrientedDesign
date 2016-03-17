@@ -50,7 +50,7 @@ public abstract class Shape
         return true;
     }
     
-    //public abstract void draw(Graphics2D g2, boolean filled);
+    public abstract void draw(Graphics2D g2, boolean filled);
 
     
     public abstract void translate(double x, double y);

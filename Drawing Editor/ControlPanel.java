@@ -64,7 +64,7 @@ public class ControlPanel extends JPanel
              {
                 setColor();
                 
-                //colorPanel.setBackground(canvas1.getColor());
+                colorPanel.setBackground(canvas1.getColor());
                 }
              else if (event.getSource() == button2)
              {

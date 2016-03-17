@@ -26,19 +26,33 @@ public class Circle extends Shape
         center = cent;
         radius = rad;
         color = col;
+        
+        circle = new Ellipse2D.Double(center.getX()-radius, center.getY()-radius, radius, radius );
     }
 
   
-    public void draw(Graphics g2, boolean filled)
+    public void draw(Graphics2D g2, boolean filled)
     {
+        circle = new Ellipse2D.Double(center.getX()-radius, center.getY()-radius, radius, radius );
         g2.setColor(color);
+            if(filled==true)
+        {
         
-        //g2.draw(circle);
+        g2.draw(circle);
+        g2.fill(circle);
+        }
+        else
+       {
+        g2.draw(circle);
+       }
     }
     
     public void translate(double x, double y)
     {
-        double xx= x-(circle.getWidth()/2);
+        double xDelta = x - (circle.getWidth()/2);
+        double yDelta = y - (circle.getHeight()/2);
+        center.setLocation(x, y);
+        circle.setFrame(xDelta, yDelta, circle.getWidth(), circle.getHeight());
     }
 
 }

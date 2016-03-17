@@ -1,6 +1,6 @@
 import javax.swing.JPanel;
 import java.awt.*;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import java.awt.Dimension;
@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JColorChooser;
 import java.awt.Color;
 import java.awt.geom.Point2D;
+import javax.swing.*;
 /**
  * Write a description of class DrawingPanel here.
  * 
@@ -46,47 +47,52 @@ public class DrawingPanel extends JPanel
     public void addCircle()
     {
         shapes.add(new Circle(new Point2D.Double(150,150), 150, cc));
+        repaint();
     }
     
     public void addSquare(Graphics2D g)
     {
-        //Square square = new Square();
-        
+        shapes.add(new Square(new Point2D.Double(350,350), 150, cc));
+        repaint();
     }
     
+    public ArrayList getShapeList()
+    {
+        return shapes;
+    }
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
        
         super.paintComponent(g);
         
-        //for(Shape shape : shapeList)
+        for( int i = 0; i<shapes.size(); i++)
         {
-            //shape.draw(g2, true);
+            shapes.get(i).draw(g2, true);
+        
         }
         repaint();
     }
     
-        public class MousePressListener implements MouseListener
+        public class MouseEventListener implements MouseMotionListener
     {
-        public void mousePressed(MouseEvent event)
+        private ArrayList<Shape> shapes1;
+        private boolean pressed;
+        private Point2D.Double point = new Point2D.Double();
+        public void mouseDragged(MouseEvent event)
         {
-            int x = event.getX();
-            int y = event.getY();
+            shapes1 = getShapeList();
+            point.setLocation(event.getX(), event.getY());
+            for( int x = 0; x<shapes1.size(); x++)
+            {
+                shapes1.get(x).translate(event.getX(), event.getY());
+            }
+            repaint();
             
         }
-        public void mouseReleased(MouseEvent event)
+        public void mouseMoved(MouseEvent event)
         {
+            
         }
-        public void mouseClicked(MouseEvent event)
-        {
-        }
-        public void mouseEntered(MouseEvent event)
-        {
-        }
-        public void mouseExited(MouseEvent event)
-        {
-        }
-        
     }
 }

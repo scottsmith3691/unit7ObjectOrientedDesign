@@ -2,7 +2,7 @@ import java.awt.geom.Point2D;
 import java.awt.Color;
 import java.awt.*;
 import java.util.*;
-import java.awt.geom.Point2D;
+import java.awt.geom.*;
 import java.awt.Graphics2D;
 /**
  * Write a description of class Square here.
@@ -16,15 +16,18 @@ public class Square extends Shape
     private Point2D.Double center;
     private double radius;
     private Color color;
-
+    private Rectangle2D.Double square;
     /**
      * Default constructor for objects of class Square
      */
     public Square(Point2D.Double center, double radius, Color color)
     {
+        super(center, radius, color);
+        
         center = center;
         radius = radius;
         color = color;
+        square = new Rectangle2D.Double(center.getX()+(radius/2), center.getY()+(radius/2),radius,radius);
     }
 
     
@@ -45,7 +48,7 @@ public class Square extends Shape
     
     public void setRadius(double r)
     {
-        
+        radius=r;
     }
     
     public boolean isInside(Point2D.Double point)
@@ -55,15 +58,21 @@ public class Square extends Shape
     
     public void draw(Graphics2D g2, boolean filled)
     {
-        double x = center.getX();
-        double y = center.getY();
-        double leftX = x-radius;
-        double leftY = y-radius;
-        double rightX = x+radius;
-        double rightY = y+radius;
-        g2.drawRect((int)leftX, (int)leftY, (int)rightX, (int)rightY);
+        square = new Rectangle2D.Double(center.getX()+(radius/2), center.getY()+(radius/2),radius,radius);
+        if(filled==true)
+        {
+        g2.setColor(color);
+        g2.draw(square);
+    }
+    else
+    {
+        g2.draw(square);
+    }
     }
         
-    
+    public void translate(double x, double y)
+    {
+        int xxx=0;
+    }
 
 }
