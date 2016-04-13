@@ -29,7 +29,16 @@ public class Circle extends Shape
         
         circle = new Ellipse2D.Double(center.getX()-radius, center.getY()-radius, radius, radius );
     }
-
+    
+    public boolean isInside(Point2D.Double point)
+    {
+        circle = new Ellipse2D.Double(super.getCenter().getX() - super.getRadius(),
+        super.getCenter().getY()-super.getRadius(),
+        2*super.getRadius(),
+        2*super.getRadius());
+        
+        return circle.contains(point);
+    }
   
     public void draw(Graphics2D g2, boolean filled)
     {
