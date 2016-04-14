@@ -54,7 +54,7 @@ public class ControlPanel extends JPanel
         }
         public void addSquare()
         {
-            //this.canvas1.addSquare();
+            this.canvas1.addSquare();
         }
     public class ClickListener implements ActionListener
 {
@@ -73,7 +73,7 @@ public class ControlPanel extends JPanel
                 }
              else if (event. getSource() == button3)
              {
-                 addSquare();
+                 canvas1.addSquare();
                  System.out.println("Button2");
                 }
     }

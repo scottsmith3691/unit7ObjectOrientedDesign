@@ -20,7 +20,7 @@ public class DrawingPanel extends JPanel
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
     private Dimension dim;
     private Color cc;
-    
+    private int now;
     public DrawingPanel()
     {
         setBackground(Color.WHITE);
@@ -50,7 +50,7 @@ public class DrawingPanel extends JPanel
         repaint();
     }
     
-    public void addSquare(Graphics2D g)
+    public void addSquare()
     {
         shapes.add(new Square(new Point2D.Double(350,350), 150, cc));
         repaint();
@@ -60,6 +60,28 @@ public class DrawingPanel extends JPanel
     {
         return shapes;
     }
+    
+    public class ClickListener implements MouseListener
+    {
+        public void mouseClicked(MouseEvent event)
+        {}
+        public void mouseReleased(MouseEvent event)
+        {}
+        public void mousePressed(MouseEvent event)
+        {
+            requestFocusInWindow();
+            Point2D.Double point = new Point2D.Double(event.getX(),event.getY());
+            for (int x = 0; x<shapes.size();x++)
+            {
+                now=x;
+            }
+        }
+        public void mouseEntered(MouseEvent event)
+        {}
+        public void mouseExited(MouseEvent event)
+        {}
+    }
+    
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
@@ -67,9 +89,10 @@ public class DrawingPanel extends JPanel
         super.paintComponent(g);
         
         for( int i = 0; i<shapes.size(); i++)
-        {
-            shapes.get(i).draw(g2, true);
-        
+        {   
+            shapes.get(i).draw(g2,(now==i));
+            
+
         }
         repaint();
     }
