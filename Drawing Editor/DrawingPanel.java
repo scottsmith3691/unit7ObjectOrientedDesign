@@ -52,7 +52,7 @@ public class DrawingPanel extends JPanel
     
     public void addSquare()
     {
-        shapes.add(new Square(new Point2D.Double(350,350), 150, cc));
+        shapes.add(new Square(new Point2D.Double(150,150), 150, cc));
         repaint();
     }
     

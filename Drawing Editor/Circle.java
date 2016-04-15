@@ -9,12 +9,7 @@ import java.awt.*;
 public class Circle extends Shape
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private Point2D.Double center;
-    
-    private double radius;
-    
-    private Color color;
-    
+
     private Ellipse2D.Double circle;
 
     /**
@@ -23,11 +18,9 @@ public class Circle extends Shape
     public Circle(Point2D.Double cent, double rad, Color col)
     {
         super(cent, rad, col);
-        center = cent;
-        radius = rad;
-        color = col;
+
         
-        circle = new Ellipse2D.Double(center.getX()-radius, center.getY()-radius, radius, radius );
+        circle = new Ellipse2D.Double(getCenter().getX()-getRadius(), getCenter().getY()- getRadius(), getRadius(), getRadius() );
     }
     
     public boolean isInside(Point2D.Double point)
@@ -42,8 +35,8 @@ public class Circle extends Shape
   
     public void draw(Graphics2D g2, boolean filled)
     {
-        circle = new Ellipse2D.Double(center.getX()-radius, center.getY()-radius, radius, radius );
-        g2.setColor(color);
+        circle = new Ellipse2D.Double(getCenter().getX()-getRadius(), getCenter().getY()-getRadius(), getRadius(), getRadius() );
+        g2.setColor(getColor());
             if(filled==true)
         {
         
@@ -60,7 +53,7 @@ public class Circle extends Shape
     {
         double xDelta = x - (circle.getWidth()/2);
         double yDelta = y - (circle.getHeight()/2);
-        center.setLocation(x, y);
+        getCenter().setLocation(x, y);
         circle.setFrame(xDelta, yDelta, circle.getWidth(), circle.getHeight());
     }
 

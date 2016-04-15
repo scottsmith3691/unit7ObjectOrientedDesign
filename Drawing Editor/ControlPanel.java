@@ -69,12 +69,12 @@ public class ControlPanel extends JPanel
              else if (event.getSource() == button2)
              {
                 canvas1.addCircle();
-                 System.out.println("Button1");
+               
                 }
              else if (event. getSource() == button3)
              {
                  canvas1.addSquare();
-                 System.out.println("Button2");
+     
                 }
     }
 }

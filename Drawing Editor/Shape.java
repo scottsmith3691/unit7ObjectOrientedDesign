@@ -30,6 +30,11 @@ public abstract class Shape
         return center1;
     }
     
+    public Color getColor()
+    { 
+        return c;
+    }
+    
     public double getRadius()
     {
         return rad;

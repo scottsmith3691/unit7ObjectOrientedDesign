@@ -13,9 +13,7 @@ import java.awt.Graphics2D;
 public class Square extends Shape
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private Point2D.Double center;
-    private double radius;
-    private Color color;
+    
     private Rectangle2D.Double square;
     /**
      * Default constructor for objects of class Square
@@ -24,33 +22,9 @@ public class Square extends Shape
     {
         super(center, radius, color);
         
-        center = center;
-        radius = radius;
-        color = color;
         square = new Rectangle2D.Double(center.getX()+(radius/2), center.getY()+(radius/2),radius,radius);
     }
 
-    
-    public Point2D.Double getCenter()
-    {
-        return center;
-    }
-    
-    public double getRadius()
-    {
-        return radius;
-    }
-    
-    public void move(double x, double y)
-    {
-        
-    }
-    
-    public void setRadius(double r)
-    {
-        radius=r;
-    }
-    
     public boolean isInside(Point2D.Double point)
     {
         return true;
@@ -58,11 +32,11 @@ public class Square extends Shape
     
     public void draw(Graphics2D g2, boolean filled)
     {
-        square = new Rectangle2D.Double(center.getX()+(radius/2), center.getY()+(radius/2),radius,radius);
+        g2.setColor(getColor());
+        square = new Rectangle2D.Double(getCenter().getX()+(getRadius()/2), getCenter().getY()+(getRadius()/2),getRadius(),getRadius());
         if(filled==true)
         {
-        g2.setColor(color);
-        g2.draw(square);
+        g2.fill(square);
     }
     else
     {
