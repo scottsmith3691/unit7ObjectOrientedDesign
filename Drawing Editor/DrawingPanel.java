@@ -90,7 +90,7 @@ public class DrawingPanel extends JPanel
         
         for( int i = 0; i<shapes.size(); i++)
         {   
-            shapes.get(i).draw(g2,(now==i));
+            shapes.get(i).draw(g2,(true));
             
 
         }
@@ -104,18 +104,23 @@ public class DrawingPanel extends JPanel
         private Point2D.Double point = new Point2D.Double();
         public void mouseDragged(MouseEvent event)
         {
+            
             shapes1 = getShapeList();
             point.setLocation(event.getX(), event.getY());
             for( int x = 0; x<shapes1.size(); x++)
             {
-                shapes1.get(x).translate(event.getX(), event.getY());
+            if(shapes1.get(x).isInside(point)==true)
+                {
+                shapes1.get(x).move(event.getX(), event.getY());
             }
+        }
+            
             repaint();
             
         }
         public void mouseMoved(MouseEvent event)
         {
-            
+       
         }
     }
 }

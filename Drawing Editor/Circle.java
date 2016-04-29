@@ -29,7 +29,6 @@ public class Circle extends Shape
         super.getCenter().getY()-super.getRadius(),
         2*super.getRadius(),
         2*super.getRadius());
-        
         return circle.contains(point);
     }
   
@@ -40,7 +39,6 @@ public class Circle extends Shape
             if(filled==true)
         {
         
-        g2.draw(circle);
         g2.fill(circle);
         }
         else
@@ -48,13 +46,4 @@ public class Circle extends Shape
         g2.draw(circle);
        }
     }
-    
-    public void translate(double x, double y)
-    {
-        double xDelta = x - (circle.getWidth()/2);
-        double yDelta = y - (circle.getHeight()/2);
-        getCenter().setLocation(x, y);
-        circle.setFrame(xDelta, yDelta, circle.getWidth(), circle.getHeight());
-    }
-
 }

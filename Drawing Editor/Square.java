@@ -43,10 +43,5 @@ public class Square extends Shape
         g2.draw(square);
     }
     }
-        
-    public void translate(double x, double y)
-    {
-        int xxx=0;
-    }
 
 }
